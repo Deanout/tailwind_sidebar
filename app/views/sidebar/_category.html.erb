@@ -1,0 +1,18 @@
+<li>
+  <div class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+    <span class="flex items-center flex-1 ml-3 whitespace-nowrap"
+        data-controller="category"
+        data-category-id="<%= category.id %>"
+        data-action="click->category#click"
+      <%# category_id_tooltip %>
+      data-tooltip-target="<%= dom_id(category, "tooltip") %>"
+      >
+      <%= render "sidebar/icons/category" %>
+      <div class="name ml-3" data-category-target="name">
+        <%= link_to category.name, category, class: "flex-1" %>
+      </div>
+      <div id="<%= dom_id(category, "tooltip") %>" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+        Double click icon to rename category
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+    </span>
